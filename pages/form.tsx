@@ -39,80 +39,114 @@ const FormPage: NextPage = ({}) => {
       const onSubmitValue = 'onSubmitForm()';
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container px-10 mx-auto mb-8">
 
       <Head>
         <title>cfsnap.com</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='grid grid-cols-1 md:grid-cols-12 gap-12'>
-        <div className='sm:col-span-8 col-span-1'>
+      <div className='grid grid-cols-1 gap-12 md:grid-cols-12'>
+        <div className='col-span-1 sm:col-span-8'>
             
-          <div className='bg-white shadow-lg rounded-lg p-0 md:p-4 pb-12 mb-8'> 
+          <div className='p-0 pb-12 mb-8 bg-white rounded-lg shadow-lg md:p-4'> 
             <h3 className="text-3xl font-semibold cursor-pointer">Form Component Demo</h3>
           </div>
 
-          <div className='bg-white shadow-lg rounded-lg p-0 md:p-4 pb-12 mb-8'>
+          <div className='p-0 pb-12 mb-8 bg-white rounded-lg shadow-lg md:p-4'>
           <div className="container">
             <div className="showcase-form card">
-                {/* 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', width: '50%'}}> 
-                    <form>
-                        <div style={{textAlign: 'center', paddingRight: '10px'}}>
-                            <label htmlFor="type">Choose a field: </label>
+                <form>
+                <div className='grid grid-cols-2 pb-2'>    {/* style={{border: 'thin solid gray'}} */}
+                    <div className='pr-3 text-right'>
+                        <label htmlFor="type">Choose a field: </label>
+                    </div>
+                    <div className='pl-3'>
+                        <select name="type" id="type" style={{border: 'thin solid silver', borderRadius: '5px'}}>
+                            <option value="text">Radio</option>
+                            <option value="radio">Text</option>
+                            <option value="select">Select</option>
+                            <option value="checkbox">Checkbox</option>
+                        </select>
+                    </div>
+                </div>    
+                <div className='grid grid-cols-2 pb-2'>
+                    <div className='pr-3 text-right'>
+                        <label htmlFor="displayLabel">Label: </label>
+                    </div>
+                    <div className='pl-3'>
+                        <input type="text" id="displayLabel" name="displayLabel" style={{border: 'thin solid silver', borderRadius: '5px'}} />
+                    </div>
+                </div>
+                <div className='grid grid-cols-2 pb-2'>
+                    <div className='pr-3 text-right'>
+                        <label htmlFor="name">Name: </label>
+                    </div>
+                    <div className='pl-3'>
+                        <input type="text" id="name" name="name" style={{border: 'thin solid silver', borderRadius: '5px'}} />
+                    </div>
+                </div>
+                <div className='grid grid-cols-2 pb-2'>
+                    <div className='pr-3 text-right'>
+                            Required: 
                         </div>
-                        <div style={{fontSize: '15px', textAlign: 'center', paddingRight: '1px'}}>
-                            <select name="type" id="type" style={{border: 'thin solid silver', borderRadius: '5px'}}>
-                                <option value="text">Radio</option>
-                                <option value="radio">Text</option>
-                                <option value="select">Select</option>
-                                <option value="checkbox">Checkbox</option>
-                            </select>
-                        </div><br />
-
-                        <div style={{textAlign: 'center', paddingRight: '10px'}}>
-                            <label htmlFor="displayLabel">Label: </label>
+                        <div className='pl-3'>
+                            <input type="radio" id="Y" name="required" value="Y" /><label htmlFor="Y">Y &nbsp; </label>
+                            <input type="radio" id="N" name="required" value="N" /><label htmlFor="N">N</label>
                         </div>
-                        <div style={{textAlign: 'center', paddingRight: '1px'}}>
-                            <input type="text" id="displayLabel" name="displayLabel" style={{border: 'thin solid silver', borderRadius: '5px'}} />
-                        </div><br />
-
-                        <div style={{textAlign: 'center', paddingRight: '10px'}}>
-                            <label htmlFor="name">Name: </label>
-                        </div>
-                        <div style={{fontSize: '15px', textAlign: 'center', paddingRight: '1px'}}>
-                            <input type="text" id="name" name="name" style={{border: 'thin solid silver', borderRadius: '5px'}} />
-                        </div><br />
-
-                        <div style={{textAlign: 'center', paddingRight: '10px'}}>
-                            Required: &nbsp; <input type="radio" id="Y" name="required" value="Y" /><label htmlFor="Y">Y</label>
-                            <input type="radio" id="N" name="required" value="N" /><label htmlFor="N">N</label><br />
-                        </div>
-                        <div style={{fontSize: '15px', textAlign: 'center', paddingRight: '1px'}}>
-                            &nbsp;
-                        </div>
-                        
-                        <div style={{textAlign: 'center', paddingRight: '10px'}}>
+                </div>
+                <div className='grid grid-cols-2 pb-2'>        
+                    <div className='pr-3 text-right'>
                             <label htmlFor="options">Options: </label>
                         </div>
-                        <div style={{fontSize: '15px', textAlign: 'center', paddingRight: '1px'}}>
+                        <div className='pl-3'>
                             <input type="text" id="options" name="options" style={{border: 'thin solid silver', borderRadius: '5px'}} /><br /><br />
                         </div>
-                        
+                </div>
+                <div className='grid place-items-center'>
                         <button 
+                            className='w-1/5'
                             type="button"
-                            style={{borderRadius: '5px', backgroundColor: 'blue', color: 'white', padding: '5px'}}>Build It!</button>
-                            
-                    </form>
-                    <div>
+                            style={{borderRadius: '5px', backgroundColor: 'teal', color: 'white', padding: '5px'}}>Add Form Field</button>
+                </div>            
+                   
+                    {/* <div>
                     Zoo Animals:<br />&lt;div&gt;<br />&lt;input type="radio" id="elephant" name="zooAnimals"  value="elephant"/&gt;&lt;label htmlFor="elephant"&gt; &lt;/label&gt;<br />&lt;/div&gt;<br /><br />
                     &lt;div&gt;<br />&lt;input type="radio" id="giraffe" name="zooAnimals" value="giraffe"/&gt;&lt;label htmlFor="giraffe"&gt; &lt;/label&gt;&lt;/div&gt;<br /><br />
                     &lt;div&gt;<br />&lt;input type="radio" id="tiger" name="zooAnimals"  value="tiger"/&gt;&lt;label htmlFor="tiger"&gt; &lt;/label&gt;&lt;/div&gt;<br /><br />
-                    </div>
-                </div>
- */}
+                    </div> */}
+                
+                </form>
+               
 
+                <div className='grid grid-cols-2 pt-4 pb-2 text-slate-300'>        
+                    <div className='pr-3 text-right'>
+                        <label htmlFor="options">Colors: </label>
+                    </div>
+                    <div className='pl-3'>
+                        <select name="type" id="type" style={{border: 'thin solid silver', borderRadius: '5px'}}>
+                            <option value="text">Cyan</option>
+                            <option value="radio">Magenta</option>
+                            <option value="select">Yellow</option>
+                            <option value="checkbox">Black</option>
+                        </select>
+                    </div>
+                </div> 
+                <div className='grid grid-cols-1 pt-4 pb-2 text-slate-300'> 
+                    &lt;div className='grid grid-cols-2 pt-4 pb-2 text-slate-300'&gt;        
+                    &lt;div className='pr-3 text-right'&gt;
+                    &lt;label htmlFor="options"&gt;Colors: &lt;/label&gt;
+                        &lt;/div&gt;
+                        &lt;div className='pl-3'&gt;
+                        &lt;select name="type" id="type" style=border: 'thin solid silver', borderRadius: '5px'&gt;
+                        &lt;option value="text"&gt;Cyan&lt;/option&gt;
+                        &lt;option value="radio"&gt;Magenta&lt;/option&gt;
+                        &lt;option value="select"&gt;Yellow&lt;/option&gt;
+                        &lt;&lt;option value="checkbox"&gt;Black&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt; 
+                </div>
                     {userMessage && <h2 className='p-2 text-center'>{userMessage}</h2>}
                     <FormComponent 
                         fields = {fields}
@@ -125,8 +159,8 @@ const FormPage: NextPage = ({}) => {
           </div>
           
         </div>
-        <div className='sm:col-span-4 col-span-1'>
-            <div className='sm:sticky relative top-8'>
+        <div className='col-span-1 sm:col-span-4'>
+            <div className='relative sm:sticky top-8'>
               <CategoriesPlaceholder />
               {/* <PostWidget /> */}
             </div>
